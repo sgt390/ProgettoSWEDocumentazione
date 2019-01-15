@@ -1,3 +1,7 @@
+cache:
+  bundler: true
+  directories:
+    - tmp/cache/assets/test/sprockets
 before_install:
   - sudo apt-get update
   - sudo apt-get install hunspell

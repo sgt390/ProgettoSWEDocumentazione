@@ -8,9 +8,10 @@ BLUE='\033[0;36m'
 NC='\033[0m' # No Color
 
 #word count for .dictionary.dic
-cat .dictionary.dic | wc -l > dictionaryApp.dic
-cat .dictionary.dic >> dictionaryApp.dic
-cat dictionaryApp.dic > .dictionary.dic
+DICTIONARY="scripts/.dictionary.dic"
+cat $DICTIONARY | wc -l > dictionaryApp.dic
+cat $DICTIONARY >> dictionaryApp.dic
+cat dictionaryApp.dic > $DICTIONARY
 
 #only diff files
 #TEX_FILES_CHANGED=`(git diff --name-only $TRAVIS_COMMIT_RANGE || true) | grep .md`
@@ -27,7 +28,7 @@ fi
 echo -e "$BLUE>> Following tex files were changed in this pull request (commit range: $TRAVIS_COMMIT_RANGE):$NC"
 echo "$TEX_FILES_CHANGED"
 
-USE_LANGUAGE='it_IT,en_US,.dictionary'
+USE_LANGUAGE='it_IT,en_US,scripts/.dictionary'
 echo -e "$BLUE>> Will use this language as main one:$NC"
 echo "$USE_LANGUAGE"
 
